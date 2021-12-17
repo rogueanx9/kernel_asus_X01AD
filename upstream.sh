@@ -25,12 +25,12 @@ for i in {269..282}
 do
     print_lite "Merge v4.9.$i"
     git merge -X ours --allow-unrelated-histories --no-edit v4.9.$i
-    count = $((count + 1))
-    echo -n count
+    ((count=count+1))
+    echo $count
 
-    if [count -eq 10]; then
+    if [[ $count -eq 10 ]]; then
         if run_build; then
-            continue
+            break
         else
             break
         fi
