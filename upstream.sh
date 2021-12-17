@@ -24,8 +24,9 @@ count=0
 for i in {269..282}
 do
     print_lite "Merge v4.9.$i"
-    git merge -X ours --allow-unrelated-histories v4.9.$i
+    git merge -X ours --allow-unrelated-histories --no-edit v4.9.$i
     count = $((count + 1))
+    echo -n count
 
     if [count -eq 10]; then
         if run_build; then
